@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Welcome to your Dashboard, {{ request.user.first_name }}!</h1>
+    
+    <p>Role: {{ request.user.role }}</p>
+    <p>Email: {{ request.user.email }}</p>
+    <p>Phone: {{ request.user.phone }}</p>
+    
+    <!-- Add more sections as needed for the dashboard -->
+    <section>
+        <h2>Your Profile</h2>
+        <a href="{% url 'profile' %}">View/Update Profile</a>
+    </section>
+
+    <section>
+        <h2>Available Courses</h2>
+        <a href="{% url 'courses' %}">Browse Courses</a>
+    </section>
+    
+    <section>
+        <h2>Settings</h2>
+        <a href="{% url 'password_reset' %}">Reset Password</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </section>
+{% endblock %}
